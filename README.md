@@ -48,9 +48,13 @@ Fondasi utamanya:
 
 Halaman masuk untuk pengguna terdaftar. Berisi form email dan password, tombol "Masuk dengan Google", serta tautan ke halaman daftar. Setelah berhasil masuk, pengguna diarahkan ke `/workspaces`. Login dibatasi 5 percobaan per menit per email dan IP.
 
+![Halaman login KurFlow](public/screenshots/login.png)
+
 ### `/register`
 
 Halaman pendaftaran akun baru. Meminta nama, email, password, dan konfirmasi password. Akun baru langsung masuk dan diarahkan ke `/workspaces`. Akun Google yang belum memiliki password hanya dapat masuk melalui Google.
+
+![Halaman registrasi KurFlow](public/screenshots/register.png)
 
 ### `/auth/google/redirect` dan `/auth/google/callback`
 
@@ -60,9 +64,13 @@ Rute teknis tanpa tampilan. Pengguna diarahkan ke halaman persetujuan Google. Sa
 
 Daftar workspace milik pengguna dan workspace yang memiliki board tempat pengguna menjadi anggota. Setiap baris menampilkan nama workspace, jumlah board, dan pemilik. Tersedia modal "Buat Workspace" dengan validasi 3 sampai 60 karakter.
 
+![Halaman daftar workspace](public/screenshots/workspaces.png)
+
 ### `/workspaces/{workspace}`
 
 Daftar board di dalam workspace. Setiap baris menampilkan jumlah kartu, nama sprint aktif, dan avatar sebagian anggota. Pemilik workspace dapat membuat board dan mengganti nama workspace. Pemilik workspace otomatis menjadi anggota setiap board yang ia buat. Board baru langsung memiliki kolom Backlog, Dikerjakan, Review Kode, dan Selesai.
+
+![Halaman board dalam workspace](public/screenshots/workspace-boards.png)
 
 ### `/boards/{board}`
 
@@ -80,6 +88,8 @@ Isi board:
 - Klik dan tarik kartu untuk memindahkan posisi. Perubahan langsung tampil untuk pengguna lain di board yang sama.
 - Bila koneksi WebSocket terputus, muncul pemberitahuan "Koneksi terputus, mencoba menyambung ulang". State board disinkronkan ulang setelah koneksi kembali.
 
+![Halaman board kanban](public/screenshots/board.png)
+
 ### Drawer detail kartu
 
 Drawer selebar 480px dari kanan berisi:
@@ -94,9 +104,13 @@ Drawer selebar 480px dari kanan berisi:
 
 Drawer memiliki state loading, empty, dan error. Komentar serta activity log dimuat saat drawer dibuka.
 
+![Drawer detail kartu](public/screenshots/board-card-drawer.png)
+
 ### `/boards/{board}/sprints`
 
 Daftar sprint board beserta status, rentang tanggal, dan jumlah kartu. Pengguna dapat membuat sprint baru, menjalankan sprint berstatus direncanakan, dan menyelesaikan sprint aktif. Tombol "Jalankan Sprint" dinonaktifkan bila sudah ada sprint aktif, dengan pesan "Selesaikan sprint aktif terlebih dahulu." Satu board hanya boleh memiliki satu sprint aktif.
+
+![Halaman daftar sprint](public/screenshots/sprints.png)
 
 ### `/boards/{board}/settings`
 
@@ -107,6 +121,8 @@ Pengaturan board berisi:
 - Daftar label board dan form buat label dengan 6 warna tetap, dapat dilakukan oleh anggota board.
 
 Label harus unik per board tanpa membedakan huruf besar dan kecil. Email anggota harus sudah terdaftar di KurFlow.
+
+![Halaman pengaturan board](public/screenshots/settings.png)
 
 ## Hak Akses
 
@@ -294,6 +310,7 @@ deploy/                Konfigurasi production
 public/
   images/              Logo web
   icons/               Favicon dan ikon browser
+  screenshots/         Tangkapan layar untuk dokumentasi
 resources/
   brand/               Sumber logo asli
   css/                 Tailwind dan design token
